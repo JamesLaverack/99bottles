@@ -1,9 +1,19 @@
 class Bottles
   def verse(num)
-    <<-VERSE
+    str = <<-VERSE
 #{plural(num)} of beer on the wall, #{plural(num)} of beer.
-#{retrieve_bottles(num)}, #{plural(num - 1)} of beer on the wall.
+#{retrieve_bottles(num)}, #{plural(next_amount(num))} of beer on the wall.
     VERSE
+
+    str.slice(0,1).capitalize + str.slice(1..-1)
+  end
+
+  def next_amount(num)
+    if num != 0
+      num - 1
+    else
+      99
+    end
   end
 
   def retrieve_bottles(amount_remaining)
@@ -11,6 +21,8 @@ class Bottles
       'Take one down and pass it around'
     elsif amount_remaining > 0
       'Take it down and pass it around'
+    else
+      'Go to the store and buy some more'
     end
   end
 
