@@ -1,8 +1,6 @@
 class Bottles
   def song()
-    b=99.downto(0).to_a
-    puts b
-    verses(*b)
+    verses(*99.downto(0).to_a)
   end
 
   def verses(*nums)
