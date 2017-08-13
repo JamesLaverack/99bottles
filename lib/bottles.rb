@@ -1,4 +1,12 @@
 class Bottles
+  def verses(*nums)
+    text = nums.map do |num|
+      verse(num)
+    end
+
+    text.join("\n")
+  end
+
   def verse(num)
     str = <<-VERSE
 #{plural(num)} of beer on the wall, #{plural(num)} of beer.
