@@ -1,4 +1,10 @@
 class Bottles
+  def song()
+    b=99.downto(0).to_a
+    puts b
+    verses(*b)
+  end
+
   def verses(*nums)
     text = nums.map do |num|
       verse(num)
@@ -13,7 +19,7 @@ class Bottles
 #{retrieve_bottles(num)}, #{plural(next_amount(num))} of beer on the wall.
     VERSE
 
-    str.slice(0,1).capitalize + str.slice(1..-1)
+    str.slice(0, 1).capitalize + str.slice(1..-1)
   end
 
   def next_amount(num)
